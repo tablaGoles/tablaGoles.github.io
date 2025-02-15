@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+</head>
+<body>
+    <h1>Gestión de Administrador</h1>
+    <main>
+        <div>
+            <nav>
+                <a href="jugadores.html" target="_blank">Jugadores</a>
+            </nav>
+        </div>
+        <div id="acceso">
+            <h2>Acceder</h2>
+            <form id="formAcceso">
+                <label for="passwordAcceso">Clave: </label>
+                <input type="password" id="passwordAcceso" name="password" value="" required>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div hidden id="opciones">
+            <div>
+                <h2>Crear jugador</h2>
+                <form id="formCrearJugador">
+                    <label for="nombreCrearJugador">Nombre: </label>
+                    <input type="text" id="nombreCrearJugador" name="nombre" value="" required>
+                    <br>
+                    <label for="nacimientoCrearJugador">Nacimiento: </label>
+                    <input type="date" id="nacimientoCrearJugador" name="nacimiento" value="">
+                    <br>
+                    <label for="caracteristicaCrearJugador">Caracteristica: </label>
+                    <input type="text" id="caracteristicaCrearJugador" name="caracteristica" value="">
+                    <br>
+                    <label for="curiosidadCrearJugador">Curiosidad: </label>
+                    <input type="text" id="curiosidadCrearJugador" name="curiosidad" value="">
+                    <br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+            <div>
+                <h2>Crear partido</h2>
+                <form id="formCrearPartido">
+                    <label for="fechaCrearPartido">Nombre: </label>
+                    <input type="date" id="fechaCrearPartido" name="fecha" value="" required>
+                    <br>
+                    <label for="lugarCrearPartido">Nacimiento: </label>
+                    <input type="text" id="lugarCrearPartido" name="lugar" value="">
+                    <br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+            <div>
+                <h2>Cargar goles</h2>
+                <form id="formCargarGoles">
+                    <label for="golesCargarGoles">Goles: </label>
+                    <input type="number" id="golesCargarGoles" name="goles" value="" required>
+                    <br>
+                    <label for="nombreCargarGoles">Nombre: </label>
+                    <input type="text" id="nombreCargarGoles" name="nombre" value="" required>
+                    <br>
+                    <label for="fechaCargarGoles">Fecha: </label>
+                    <input type="date" id="fechaCargarGoles" name="fecha" value="" required>
+                    <br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+            <div>
+                <h2>Eliminar goles</h2>
+                <p>(Esto no está pensado para un jugador que metió 0 goles, es para cuando el jugador no jugó un partido asignado por error)</p>
+                <form id="formEliminarGoles">
+                    <label for="nombreEliminarGoles">Nombre: </label>
+                    <input type="text" id="nombreEliminarGoles" name="nombre" value="" required>
+                    <br>
+                    <label for="fechaEliminarGoles">Fecha: </label>
+                    <input type="date" id="fechaEliminarGoles" name="fecha" value="" required>
+                    <br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="../constants.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

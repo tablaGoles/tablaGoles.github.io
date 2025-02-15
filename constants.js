@@ -1,0 +1,1 @@
+const SERVER_URL = "https://goalsappback-production.up.railway.app";
