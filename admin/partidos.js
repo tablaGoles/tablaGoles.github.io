@@ -18,6 +18,9 @@ document.addEventListener("DOMContentLoaded", async function() {
             
             const title = document.createElement('h2');
             title.innerHTML = partido.fecha + ' - ' + partido.lugar;
+            if(partido.descripcion) {
+                title.innerHTML += ` (${partido.descripcion})`;
+            }
             const jugadores = document.createElement('table');
             const filaInfo = document.createElement('tr');
             filaInfo.innerHTML = '<th>Jugadores</th> <th>Goles</th>'
