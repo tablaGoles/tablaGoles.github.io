@@ -15,7 +15,7 @@ async function crearTabla() {
             var puesto=document.createElement('td');
             puesto.innerHTML = jugador.puesto;
             var nombre=document.createElement('td');
-            nombre.innerHTML = jugador.nombre;
+            nombre.innerHTML = `<a href="jugador.html?nombre=${jugador.nombre}" target="_blank">${jugador.nombre}</a>`;
             var goles=document.createElement('td');
             goles.innerHTML = jugador.goles;
             var partidos=document.createElement('td');
