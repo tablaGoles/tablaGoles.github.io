@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function() {
         };
 
         if (!partido.fecha) {
-            alert("Error procesando el formulario. Se requiere un nombre");
+            alert("Error procesando el formulario. Se requiere una fecha");
             return;
         }
 
