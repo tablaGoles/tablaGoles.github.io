@@ -1,0 +1,114 @@
+.foto {
+    border: solid 2px rgba(177, 177, 177, 0.253);
+    border-radius: 2%;
+    text-decoration: solid;
+    background-color:rgba(189, 184, 184, 0.479) ;
+}
+
+h1 {
+    text-align: center;
+    font-size: 36px;
+}
+
+h2, #botonPartidos {
+    font-weight: bold;
+    font-family: serif;
+    font-size: 21px;
+}
+
+p {
+    font-size: 16px;
+}
+
+.datos {
+    width: 80%;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column; 
+    text-align: center;
+} 
+
+.datosAgrupados {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1px;
+}
+
+.datosAgrupados > div {
+    flex: 1;
+}
+
+body{
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(#493D9E,#B2A5FF,#DAD2FF,#FFF2AF);
+}
+
+.image{
+    width: 100%;
+    margin: auto;
+    /* margin-top: 25px;  */
+    border: 2px rgba(189, 184, 184,);
+}
+
+.partidos {
+    margin-top: 18px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.collapsible {
+    background: transparent;
+    cursor: pointer;
+    padding: 1px;
+    width: 100%;
+    border: none;
+    text-align: center;
+    outline: none;
+}
+
+.collapsible.active {
+    background: rgba(200, 200, 200, 0.5);
+}
+  
+.collapsibleContent {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+#tablaPartidos {
+    width: 100%;
+    padding: 10px;
+}
+
+#tablaPartidos thead {
+    background-color: rgba(200, 200, 200, 0.1);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#tablaPartidos tr {
+    width: 100%;
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid rgba(100, 100, 100, 0.7);
+}
+
+#tablaPartidos td {
+    flex: 1;
+}
+#tablaPartidos .fecha {
+    text-align: right;
+}

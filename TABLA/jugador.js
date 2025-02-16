@@ -1,8 +1,6 @@
+const IMG_PATH="./imagenes"
+
 document.addEventListener("DOMContentLoaded", async function() {
-    const main = document.getElementById('perfil');
-    const loadingPlaceholder = document.createElement('p');
-    loadingPlaceholder.innerHTML = "Cargando...";
-    main.appendChild(loadingPlaceholder);
     try {
         const datos = await fetch(`${SERVER_URL}/jugador${window.location.search}`, { 
             method: 'GET',
@@ -13,37 +11,56 @@ document.addEventListener("DOMContentLoaded", async function() {
             alert(datos.statusText + ': \n' + jugador.message);
             return;
         }
-        const title = document.createElement('h2');
-        title.innerHTML = jugador.nombre;
-        const info = document.createElement('table');
-        const filaInfo = document.createElement('tr');
-        filaInfo.innerHTML = '<th>Goles totales</th> <th>Partidos jugados</th> <th>Nacimiento</th> <th>Característica</th> <th>Curiosidad</th>'
-        info.appendChild(filaInfo);
-        const filaDatosJugador = document.createElement('tr');
-        filaDatosJugador.innerHTML = `<th>${jugador.goles}</th> <th>${jugador.partidos}</th> <th>${jugador.nacimiento}</th> <th>${jugador.caracteristica}</th> <th>${jugador.curiosidad}</th>`
-        info.appendChild(filaDatosJugador);
-    
-        const table = document.createElement('table');
-        const entradas = document.createElement('tr');
-        entradas.innerHTML = '<th>Fecha</th><th>Goles</th>'
-        table.appendChild(entradas);
+
+        const imagenes = document.getElementsByClassName("image");
+        for(const image of imagenes) {
+            image.setAttribute("src", `${IMG_PATH}/${jugador.nombre}.jpg`);
+        }
+        const nombre = document.getElementById("nombre");
+        nombre.innerHTML = jugador.nombre;
+        const goles = document.getElementById("goles");
+        goles.innerHTML = jugador.goles || "ERROR CALCULANDO GOLES";
+        const partidos = document.getElementById("partidos");
+        partidos.innerHTML = jugador.partidos || "ERROR CALCULANDO PARTIDOS";
+        const nacimiento = document.getElementById("nacimiento");
+        nacimiento.innerHTML = formatDate(jugador.nacimiento, false, true) || "?";
+        const promedio = document.getElementById("promedio");
+        const promedioCalculado = jugador.goles/jugador.partidos || "ERROR";
+        const promedioRedondeado = Math.round((promedioCalculado + Number.EPSILON) * 100) / 100
+        promedio.innerHTML = promedioRedondeado + " GxP";
+        const caracteristica = document.getElementById("caracteristica");
+        caracteristica.innerHTML = jugador.caracteristica || "?";
+        const curiosidad = document.getElementById("curiosidad");
+        curiosidad.innerHTML = jugador.curiosidad || "?";
+
+        const table = document.getElementById('tablaPartidos');
+        const tbody = document.createElement('tbody');
         for(partido of jugador.detallePartidos) {
             const fila = document.createElement('tr');
-            const fecha = document.createElement('th');
-            fecha.innerHTML = partido.fecha;
-            const goles = document.createElement('th');
+            const fecha = document.createElement('td');
+            fecha.classList.add("fecha");
+            fecha.innerHTML = formatDate(partido.fecha, true);
+            const goles = document.createElement('td');
             goles.innerHTML = partido.goles;
             fila.appendChild(fecha);
             fila.appendChild(goles);
-            table.appendChild(fila);
+            tbody.appendChild(fila);
         }
-    
-        main.appendChild(title);
-        main.appendChild(info);
-        main.appendChild(document.createElement('br'));
-        main.appendChild(table);
-        main.removeChild(loadingPlaceholder);
+        table.appendChild(tbody);
     } catch (e) {
-        loadingPlaceholder.innerHTML = e;
+        alert ("Error generando perfil del jugador");
+    }
+
+    const collapsibles = document.getElementsByClassName("collapsible");
+    for (const coll of collapsibles) {
+        coll.addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
     }
 });

@@ -3,10 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil de jugador</title>
+    <title>Datos</title>
+    <link rel="stylesheet" href="jugador.css">
 </head>
 <body>
-    <main id="perfil"></main>
+    <div class="foto">
+        <figure >
+            <img class="image" src="./imagenes/default.jpg" onerror="this.src='./imagenes/default.jpg';" alt="Imagen del jugador">
+        </figure>
+    </div>
+
+    <div class="datos">
+        <h1 id="nombre">Nombre del Jugador</h1>
+        <div class="datosAgrupados">
+            <div>
+                <h2>Goles Totales</h2>
+                <p id="goles">X</p>
+            </div>
+            <div>
+                <h2>Partidos jugados</h2>
+                <p id="partidos">X</p>
+            </div>
+        </div>
+
+        <div class="datosAgrupados">
+            <div>
+                <h2>Nacimiento</h2> 
+                <p id="nacimiento">dd/mm/yyyy</p>
+            </div>
+            <div>
+                <h2>Promedio de gol</h2> 
+                <p id="promedio">...</p>
+            </div>
+        </div>
+
+        <div class="datosAgrupados">
+            <div>
+                <h2>Característica</h2> 
+                <p id="caracteristica">...</p>
+            </div>
+            <div>
+                <h2>Curiosidad</h2> 
+                <p id="curiosidad">...</p>
+            </div>
+        </div>
+
+        
+
+        <div class="partidos">
+            <button type="button" class="collapsible" id="botonPartidos">
+                Ver detalle de partidos
+            </button>
+            <div class="collapsibleContent">
+                <table id="tablaPartidos">
+                    <thead>
+                        <tr>
+                            <td class="fecha">Fecha</td> <td>Goles</td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+    
     <script src="../constants.js"></script>
     <script src="jugador.js"></script>
 </body>
