@@ -9,8 +9,13 @@ async function crearTabla() {
                 method: 'GET', 
                 headers: {'Content-Type': 'application/json'}
             })
-        const jugadores = await datos.json()
-        for (const jugador of jugadores) {
+        const jugadores = await datos.json();
+        if(!jugadores || !jugadores.length) {
+            tabla.innerHTML = "Error cargando jugadores";
+            return;
+        }
+        const jugadoresFiltrados = jugadores.filter(j => j.goles > 0);
+        for (const jugador of jugadoresFiltrados) {
             var tr=document.createElement('tr');
             var puesto=document.createElement('td');
             puesto.innerHTML = jugador.puesto;
