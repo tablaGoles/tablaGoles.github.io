@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", async function() {
         const partidos = document.getElementById("partidos");
         partidos.innerHTML = jugador.partidos || "ERROR CALCULANDO PARTIDOS";
         const nacimiento = document.getElementById("nacimiento");
-        nacimiento.innerHTML = formatDate(jugador.nacimiento, false, true) || "?";
+        nacimiento.innerHTML = jugador.nacimiento? formatDate(jugador.nacimiento, false, true) : "?";
         const promedio = document.getElementById("promedio");
         const promedioCalculado = jugador.goles/jugador.partidos || "ERROR";
         const promedioRedondeado = Math.round((promedioCalculado + Number.EPSILON) * 100) / 100
