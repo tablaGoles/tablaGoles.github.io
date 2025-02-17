@@ -4,7 +4,6 @@ crearTabla();
 
 async function crearTabla() {
     try {
-        var tabla = document.getElementById('tablaGoles');
         const datos = await fetch(SERVER_URL+'/jugadores', { 
                 method: 'GET', 
                 headers: {'Content-Type': 'application/json'}
@@ -15,15 +14,17 @@ async function crearTabla() {
             return;
         }
         const jugadoresFiltrados = jugadores.filter(j => j.goles > 0);
+        
+        const tabla = document.getElementById('tablaGoles');
         for (const jugador of jugadoresFiltrados) {
-            var tr=document.createElement('tr');
-            var puesto=document.createElement('td');
+            const tr=document.createElement('tr');
+            const puesto=document.createElement('td');
             puesto.innerHTML = createLinkJugador(jugador.nombre, jugador.puesto);
-            var nombre=document.createElement('td');
+            const nombre=document.createElement('td');
             nombre.innerHTML = createLinkJugador(jugador.nombre, jugador.nombre);
-            var goles=document.createElement('td');
+            const goles=document.createElement('td');
             goles.innerHTML = createLinkJugador(jugador.nombre, jugador.goles);
-            var partidos=document.createElement('td');
+            const partidos=document.createElement('td');
             partidos.innerHTML = createLinkJugador(jugador.nombre, jugador.partidos);
             tr.appendChild(puesto);
             tr.appendChild(nombre);
@@ -31,6 +32,11 @@ async function crearTabla() {
             tr.appendChild(partidos);
             tabla.appendChild(tr);
         }
+        const loaders = document.getElementsByClassName('loader');
+        for(const loader of loaders) {
+            loader.setAttribute('hidden', 'true');
+        }
+
     } catch (e) {
         console.error('No pudo generarse la tabla de goles', e);
     }
