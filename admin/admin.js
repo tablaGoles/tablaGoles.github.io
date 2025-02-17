@@ -168,4 +168,37 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log(e);
         }
     });
+
+    const formEditarJugador = document.getElementById('formEditarJugador');
+    formEditarJugador.addEventListener('submit', async function(event) {
+        event.preventDefault();
+
+        const jugador = {
+            nombre : document.getElementById('nombreEditarJugador').value,
+            nacimiento : document.getElementById('nacimientoEditarJugador').value,
+            caracteristica : document.getElementById('caracteristicaEditarJugador').value,
+            curiosidad : document.getElementById('curiosidadEditarJugador').value,
+        };
+
+        if (!jugador.nombre) {
+            alert("Error procesando el formulario. Se requiere un nombre");
+            return;
+        }
+
+        try {
+            const response = await fetch(SERVER_URL+'/jugadores', { 
+                method: 'PUT', 
+                headers: generateHeader(),
+                body: JSON.stringify(jugador),
+            })
+            const data = await response.json()
+            if(!response.ok) {
+                alert(response.statusText + ': \n' + data.message);
+                return;
+            }
+            alert(data.message);
+        } catch(e) {
+            console.log(e);
+        }
+    });
 });
