@@ -7,14 +7,21 @@
     <link rel="stylesheet" href="jugador.css">
 </head>
 <body>
+    <nav>
+        <a href="./index.html" div id="volver">
+            <img src="./imagenes/flecha.png" alt="Volver a tabla">
+        </a>
+    </nav>
+
     <div class="foto">
         <figure >
             <img class="image" src="./imagenes/default.jpg" onerror="this.src='./imagenes/default.jpg';" alt="Imagen del jugador">
         </figure>
-    </div>
+    
 
     <div class="datos">
         <h1 id="nombre">Nombre del Jugador</h1>
+        <hr>
         <div class="datosAgrupados">
             <div>
                 <h2>Goles Totales</h2>
@@ -25,6 +32,8 @@
                 <p id="partidos">X</p>
             </div>
         </div>
+
+        
 
         <div class="datosAgrupados">
             <div>
@@ -42,12 +51,14 @@
                 <h2>Característica</h2> 
                 <p id="caracteristica">...</p>
             </div>
+        </div>
+
+        <div class="datosAgrupados">
             <div>
                 <h2>Curiosidad</h2> 
                 <p id="curiosidad">...</p>
             </div>
         </div>
-
         
 
         <div class="partidos">
@@ -64,6 +75,7 @@
                 </table>
             </div>
         </div>
+      </div>
     </div>
     
     <script src="../constants.js"></script>

@@ -18,13 +18,13 @@ async function crearTabla() {
         for (const jugador of jugadoresFiltrados) {
             var tr=document.createElement('tr');
             var puesto=document.createElement('td');
-            puesto.innerHTML = jugador.puesto;
+            puesto.innerHTML = createLinkJugador(jugador.nombre, jugador.puesto);
             var nombre=document.createElement('td');
-            nombre.innerHTML = `<a href="jugador.html?nombre=${jugador.nombre}" target="_blank">${jugador.nombre}</a>`;
+            nombre.innerHTML = createLinkJugador(jugador.nombre, jugador.nombre);
             var goles=document.createElement('td');
-            goles.innerHTML = jugador.goles;
+            goles.innerHTML = createLinkJugador(jugador.nombre, jugador.goles);
             var partidos=document.createElement('td');
-            partidos.innerHTML = jugador.partidos;
+            partidos.innerHTML = createLinkJugador(jugador.nombre, jugador.partidos);
             tr.appendChild(puesto);
             tr.appendChild(nombre);
             tr.appendChild(goles);
@@ -34,4 +34,8 @@ async function crearTabla() {
     } catch (e) {
         console.error('No pudo generarse la tabla de goles', e);
     }
+}
+
+function createLinkJugador(nombreJugador, contenido) {
+    return `<a href="jugador.html?nombre=${nombreJugador}" target="_self"><div class="linkJugador">${contenido}</div></a>`;
 }
