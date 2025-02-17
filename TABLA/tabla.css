@@ -1,0 +1,92 @@
+
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.phdd{
+    height: 50%;
+    width: 50%;
+    
+}
+
+h3{
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 30px;
+    width: 80%;
+    max-width: 500px;
+    padding: 3px;
+    background-color:rgba(212, 212, 212, 0.301) ;
+    border: solid 2px rgba(177, 177, 177, 0.253);
+    border-radius: 3%;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.linkJugador {
+    padding: 13px 0 13px 0;
+    width: 100%;
+}
+
+.ima{
+    height: 100%;
+    width: 100%;
+    margin-top: 0%;
+    float: left;
+    max-width: 500px;
+}
+
+body{
+    display: flex;
+	flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+    
+    min-height: 100vh;
+
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+
+    background: linear-gradient(#493D9E,#B2A5FF,#DAD2FF,#FFF2AF);
+   
+}
+.container{
+    border: solid 2px rgba(177, 177, 177, 0.253);
+    border-radius: 5%;
+    align-content: center;
+    text-decoration: solid;
+    background-color:rgba(212, 212, 212, 0.300) ;
+    margin-bottom: 100px;
+}
+
+table{
+    color: rgb(27, 27, 27);
+    font-size: 14px;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+th {
+    padding: 10px 10px 7px 10px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-size: 14.5px;
+}
+
+td {
+    
+    border-top:solid 2px rgba(177, 177, 177, 0.253) ;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+
+}
+
+tbody tr:hover {
+    background: rgba(64, 39, 131, 0.253);
+}
